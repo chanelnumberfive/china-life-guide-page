@@ -329,6 +329,7 @@
 <script type="application/javascript" src="js/swiper.min.js"></script>
 <script type="application/javascript" src="js/jquery-3.1.0.js"></script>
 <script type="application/javascript">
+var swiper11;
 window.onload=function(){
 document.querySelector('#loading-1').style.display='none';
 (function($,Swiper){
@@ -429,7 +430,6 @@ document.querySelector('#loading-1').style.display='none';
            resistance:true,
            resistanceRatio:0
        }); 
-   
    var swiper2 = new Swiper('#swiper-inner-2',{
            direction: 'vertical',
            slidesPerView: 'auto',
@@ -509,6 +509,11 @@ document.querySelector('#loading-1').style.display='none';
             swiper.slideTo(0);
             
         }
+        swiper1.slideTo(0);
+        swiper2.slideTo(0);
+        swiper3.slideTo(0);
+        swiper4.slideTo(0);
+        
    });
    
    // select onchange事件
