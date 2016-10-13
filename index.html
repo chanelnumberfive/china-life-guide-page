@@ -465,6 +465,14 @@ document.querySelector('#loading-1').style.display='none';
    $('.model-tab').on('click.tab','a',function(event){
         var $target=$(event.target);
         var string='';
+        if($target.is('.active')){
+            
+        }else{
+            string=$('#p2-table').html();
+            $('#p2-table').html($('#p2-content').html());
+            $('#p2-content').html(string);
+            cartoonConfigPart(1);
+        }
         $Btn.removeClass('active');
         $Btn=$target.addClass('active');
         
@@ -481,10 +489,7 @@ document.querySelector('#loading-1').style.display='none';
                    '<span class="forward">累计总额最高50万元<br></span>'+
                    '中国人寿财险承保给付<br>';
             $P1para.html(string);
-            string=$('#p2-table').html();
-            $('#p2-table').html($('#p2-content').html());
-            $('#p2-content').html(string);
-            cartoonConfigPart(1);
+            
             // 每一次切换将swiper回滚至原位
             swiper.slideTo(0);
             
@@ -499,10 +504,6 @@ document.querySelector('#loading-1').style.display='none';
                    '<span class="forward">累计总额最高50万元<br></span>'+
                    '中国人寿财险承保给付<br>';
             $P1para.html(string);
-            string=$('#p2-table').html();
-            $('#p2-table').html($('#p2-content').html());
-            $('#p2-content').html(string);
-            cartoonConfigPart(1);
 
             // 每一次切换将swiper回滚至原位
             swiper.slideTo(0);
