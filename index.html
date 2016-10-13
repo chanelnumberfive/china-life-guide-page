@@ -341,7 +341,8 @@ document.querySelector('#loading-1').style.display='none';
        j=0,
        fnGroup={},
        string=[],
-       timer=null;
+       timer=null,
+       objSwiper={};
    
    // 对添加文字动画的页面预设高度
    $('.reading').each(function(index, element) {
@@ -406,13 +407,17 @@ document.querySelector('#loading-1').style.display='none';
             direction : 'vertical',
             onSlideChangeStart:function(swiper){
                 var elem=document.querySelector('.p1-image');
-                addCartoon(swiper.activeIndex,prevIndex);
-                if(swiper.activeIndex===0){
+                var index=swiper.activeIndex;
+                addCartoon(index,prevIndex);
+                if(index===0){
                     clearTimeout(timer);
                     timer=setTimeout(function(){elem.className+=' fly-up-down';},3000);
                 }else {
                     clearTimeout(timer);
                     elem.className=elem.className.replace(new RegExp('fly-up-down','g'),'');
+                }
+                if('1345'.indexOf(index.toString())!==-1){
+                    objSwiper['swiper'+('1345'.indexOf(index.toString())+1)].slideTo(0);
                 }
             },
             onSlideChangeEnd:function(swiper){
@@ -421,7 +426,7 @@ document.querySelector('#loading-1').style.display='none';
        });
    
    // 嵌入swiper的声明
-   var swiper1 = new Swiper('#swiper-inner-1',{
+   objSwiper.swiper1 = new Swiper('#swiper-inner-1',{
            direction: 'vertical',
            slidesPerView: 'auto',
            mousewheelControl: true,
@@ -430,7 +435,7 @@ document.querySelector('#loading-1').style.display='none';
            resistance:true,
            resistanceRatio:0
        }); 
-   var swiper2 = new Swiper('#swiper-inner-2',{
+   objSwiper.swiper2 = new Swiper('#swiper-inner-2',{
            direction: 'vertical',
            slidesPerView: 'auto',
            mousewheelControl: true,
@@ -439,7 +444,7 @@ document.querySelector('#loading-1').style.display='none';
            resistance:true,
            resistanceRatio:0
        });
-   var swiper3 = new Swiper('#swiper-inner-3',{
+   objSwiper.swiper3 = new Swiper('#swiper-inner-3',{
            direction: 'vertical',
            slidesPerView: 'auto',
            mousewheelControl: true,
@@ -448,7 +453,7 @@ document.querySelector('#loading-1').style.display='none';
            resistance:true,
            resistanceRatio:0
        });
-   var swiper4 = new Swiper('#swiper-inner-4',{
+   objSwiper.swiper4 = new Swiper('#swiper-inner-4',{
            direction: 'vertical',
            slidesPerView: 'auto',
            mousewheelControl: true,
