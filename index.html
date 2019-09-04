@@ -526,7 +526,10 @@ document.querySelector('#loading-1').style.display='none';
         $('#select-1').trigger('click');
    });                  
    addCartoon(0,0);
-   timer=setTimeout(function(){document.querySelector('.p1-image').className+=' fly-up-down';},3000);        
+   timer=setTimeout(function(){document.querySelector('.p1-image').className+=' fly-up-down';},3000);
+   window.addEventListener('resize',function(){
+       location.reload();
+   })        
 })(window.jQuery,window.Swiper);
 };
 </script>
